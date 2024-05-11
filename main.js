@@ -10,6 +10,7 @@ const app = Vue.createApp({
                     name: "Socks",
                     description: 'Available in refreshing green and cool blue. Whether you\'re feeling like a verdant forest or a tranquil ocean, these socks will match your mood effortlessly.',
                     selectedVariant: null,
+                    selectedSize: null,
                     details: ['50% Cotton', '30% Wool', '20% Polyester'],
                     variants: [
                         { id: 2234, color: 'Green', image: './assets/images/socks_green.jpg', quantity: 8 },
@@ -24,6 +25,7 @@ const app = Vue.createApp({
                     name: "Socks",
                     description: "Embrace the vibrant hues of dawn with our Sunrise Spectrum socks. Available in warm orange and radiant yellow, these socks will brighten up your day with every step.",
                     selectedVariant: null,
+                    selectedSize: null,
                     details: ['70% Cotton', '25% Nylon', '5% Spandex'],
                     variants: [
                         { id: 3234, color: 'Orange', image: './assets/images/socks_orange.jpg', quantity: 8 },
@@ -40,8 +42,8 @@ const app = Vue.createApp({
                     name: "Socks",
                     description: "Experience the magic of rainbow dreams with our vibrant socks. Available in three stunning colors to match your every mood.",
                     defaultImage: "./assets/images/socks_rainbow.jpg",
-                    selectedImage: undefined,
                     selectedVariant: null,
+                    selectedSize: null,
                     details: ['80% Cotton', '15% Polyester', '5% Spandex'],
                     variants: [
                         { id: 4234, color: 'Red', image: './assets/images/socks_red.jpg', quantity: 10 },
