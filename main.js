@@ -32,12 +32,31 @@ const app = Vue.createApp({
                     ],
                     sizes: ['small (s)', 'medium (m)', 'large (lg)'],
                     totalInventory: 0
+                },
+                {
+                    id: 3,
+                    sku: "BW20HT21P123456",
+                    brand: "Rainbow Dreams",
+                    name: "Socks",
+                    description: "Experience the magic of rainbow dreams with our vibrant socks. Available in three stunning colors to match your every mood.",
+                    defaultImage: "./assets/images/socks_rainbow.jpg",
+                    selectedImage: undefined,
+                    selectedVariant: null,
+                    details: ['80% Cotton', '15% Polyester', '5% Spandex'],
+                    variants: [
+                        { id: 4234, color: 'Red', image: './assets/images/socks_red.jpg', quantity: 10 },
+                        { id: 4235, color: 'Blue', image: './assets/images/socks_blue.jpg', quantity: 8 },
+                        { id: 4236, color: 'Yellow', image: './assets/images/socks_yellow.jpg', quantity: 12 },
+                    ],
+                    sizes: ['small (s)', 'medium (m)', 'large (lg)'],
+                    url: 'https://example.com/rainbow_dreams_socks',
+                    totalInventory: 0
                 }
             ]
         }
     },
 
-    created() {
+    beforeMount() {
         // Calculate the total invetory for each product
         this.products.forEach(product => {
             product.totalInventory = product.variants.reduce((total, variant) => total + variant.quantity, 0)
