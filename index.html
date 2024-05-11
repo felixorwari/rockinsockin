@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wetting My Feet</title>
+    <!-- Import Styles -->
+    <link rel="stylesheet" href="./assets/styles.css">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,container-queries"></script>
+    <!-- Import Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Import App -->
+    <script src="./main.js"></script>
+</head>
+<body>
+    <div id="app" class="prose px-8 md:px-0 md:container md:mx-auto">
+        <h1>{{ product }}</h1>
+    </div>
+    
+    <!-- Mount App -->
+    <script>
+        const mountedApp = app.mount('#app')
+    </script>
+</body>
+</html>
