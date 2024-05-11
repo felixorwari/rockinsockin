@@ -92,6 +92,10 @@ const app = Vue.createApp({
 
         updateVariant(product, variant) {
             product.selectedVariant = variant
+        },
+
+        updateSize(product, size) {
+            product.selectedSize = size
         }
     }
 })
