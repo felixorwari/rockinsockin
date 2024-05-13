@@ -28,18 +28,18 @@ app.component('product-display', {
             v-if="product.totalInvetory > stockThreshold"
             class="px-4 py-2 text-green-700 bg-green-100 rounded"
           >
-            In stock
+          <i class="fa-regular fa-circle-check mr-2 "></i> In stock
           </span>
 
           <span
             v-else-if="product.totalInvetory <= stockThreshold && product.totalInvetory > 0"
             class="px-4 py-2 text-yellow-700 bg-yellow-100 rounded"
           >
-            Few items remaining!
+          <i class="fa-regular fa-triangle-exclamation mr-2 "></i> Few items remaining!
           </span>
 
           <span v-else class="px-4 py-2 text-red-700 bg-red-100 rounded">
-            Sold out!
+          <i class="fa-regular fa-circle-exclamation mr-2 "></i>  Sold out!
           </span>
         </div>
 
