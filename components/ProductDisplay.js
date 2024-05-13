@@ -66,7 +66,7 @@ app.component('product-display', {
           <h4>Material:</h4>
           <p>{{ product.material.join(', ') }}</p>
 
-          <h4>Color:</h4>
+          <h4>Choose Color: </h4>
           <div class="flex gap-8">
             <div
               v-for="variant in product.variants"
@@ -103,7 +103,7 @@ app.component('product-display', {
               <div class="relative flex items-center">
                 <button 
                   type="button" 
-                  class="bg-gray-100 border border-gray-300 px-4 py-[.425rem] focus:ring-2 rounded-s disabled:opacity-25" 
+                  class="-mr-[1px] bg-gray-100 border border-gray-300 px-4 py-[.425rem] focus:ring-2 rounded-s disabled:opacity-25" 
                   @click="orderQuantity--"
                   :disabled="product.selectedVariant.quantity === 0 || orderQuantity <= 1"
                   >
@@ -113,7 +113,7 @@ app.component('product-display', {
                   type="number" 
                   v-model="orderQuantity"
                   name="orderQuantity"
-                  class="w-16 h-11 text-center text-sm py-2.5 border-x-0 border-gray-300" 
+                  class="w-12 h-11 text-center text-sm py-2.5 border-gray-300" 
                   min="1" 
                   :max="product.selectedVariant.quantity" 
                   :disabled="product.selectedVariant.quantity === 0"
@@ -121,7 +121,7 @@ app.component('product-display', {
                   required />
                 <button 
                   type="button" 
-                  class="bg-gray-100 border border-gray-300 px-4 py-[.425rem] focus:ring-2 rounded-e disabled:opacity-25" 
+                  class="-ml-[1px] bg-gray-100 border border-gray-300 px-4 py-[.425rem] focus:ring-2 rounded-e disabled:opacity-25" 
                   @click="orderQuantity++"
                   :disabled="product.selectedVariant.quantity === 0 || orderQuantity >= product.selectedVariant.quantity"
                   >
@@ -137,7 +137,7 @@ app.component('product-display', {
               class="px-6 py-3 text-sm font-semibold tracking-wide text-white uppercase transition bg-blue-700 rounded hover:bg-blue-600 hover:shadow-lg hover:disabled:shadow-none disabled:bg-blue-700 disabled:opacity-25 disabled:cursor-not-allowed"
             >
               <i class="mr-2 fa-solid fa-cart-plus"></i>
-              Add to Basket
+              Buy Now
             </button>
           </div>
         </article>
