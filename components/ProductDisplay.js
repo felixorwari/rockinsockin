@@ -68,7 +68,7 @@ app.component('product-display', {
             </li>
           </ul>
 
-          <h4>Colors</h4>
+          <h4>Color:</h4>
           <div class="flex gap-8">
             <div
               v-for="variant in product.variants"
@@ -87,7 +87,7 @@ app.component('product-display', {
             </div>
           </div>
 
-          <h4>Sizes</h4>
+          <h4>Size:</h4>
           <div class="flex gap-4 tracking-wide">
             <span
               v-for="(size, index) in product.sizes"
@@ -139,7 +139,7 @@ app.component('product-display', {
               class="px-6 py-3 text-sm font-semibold tracking-wide text-white uppercase transition bg-blue-700 rounded hover:bg-blue-600 hover:shadow-lg hover:disabled:shadow-none disabled:bg-blue-700 disabled:opacity-25 disabled:cursor-not-allowed"
             >
               <i class="mr-2 fa-solid fa-cart-plus"></i>
-              Add to Cart
+              Add to Basket
             </button>
           </div>
         </div>
