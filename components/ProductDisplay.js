@@ -9,26 +9,28 @@ app.component('product-display', {
   template:
     /*html*/
     `
-    <div class="flex flex-col gap-8 px-4 py-8 product-display md:px-0">
-      <div
+    <div class="flex flex-col px-4 py-8 product-display md:px-0">
+      <section
         v-for="product in products"
         :key="product.id"
-        class="flex flex-col product-container md:flex-row md:gap-6"
+        class="flex flex-col product-container md:flex-row gap-8"
       >
         <!-- Product Image -->
-        <div
+        <figure
           class="grid w-full overflow-hidden bg-white border-2 border-gray-100 rounded product-image md:w-1/2"
         >
           <img
             :src="product.selectedVariant.image"
-            :alt="product.title"
-            class="w-full h-auto hover:scale-[110%] object-cover transition my-auto"
+            :alt="product.brand"
+            :title="product.brand"
+            class="w-full h-auto hover:scale-[110%] object-cover transition"
           />
-        </div>
+          <figcaption class="sr-only">{{ product.brand + ' ' + product.name }}</figcaption>
+        </figure>
 
         <!-- Product Info -->
-        <div
-          class="w-full product-info md:pt-4 md:pb-8 md:w-1/2 text-balance"
+        <article
+          class="w-full product-info md:pt-4 md:pb-8 md:w-1/2 text-balance my-8"
         >
           <!-- Inventory Status -->
           <div class="flex items-center mb-4 text-xs inventory">
@@ -138,8 +140,8 @@ app.component('product-display', {
               Add to Basket
             </button>
           </div>
-        </div>
-      </div>
+        </article>
+      </section>
     </div>
   `,
 

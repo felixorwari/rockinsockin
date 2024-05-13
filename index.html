@@ -33,7 +33,7 @@
   <body class="bg-gray-50">
     <div id="app">
       <!-- Site Navigation -->
-      <div
+      <header
         class="sticky top-0 left-0 right-0 z-50 flex items-center px-8 py-4 shadow-lg navbar bg-white/80 backdrop-blur-md"
       >
         <!-- Logo -->
@@ -53,15 +53,15 @@
             >{{ cart.length }}</span
           >
         </div>
-      </div>
+      </header>
 
-      <div class="mx-auto prose md:container">
+      <main class="mx-auto prose md:container">
         <!-- Product Display -->
         <product-display
           :stock-threshold="stockThreshold"
           @add-to-cart="updateCart"
         ></product-display>
-      </div>
+      </main>
     </div>
     <!-- / End App -->
 
