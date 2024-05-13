@@ -105,20 +105,6 @@ app.component('product-display', {
     return {
       products: [
         {
-          id: 0,
-          brand: "Happy Bundle",
-          name: "Socks",
-          description: 'Available in refreshing green and cool blue. Whether you\'re feeling like a verdant forest or a tranquil ocean, these socks will match your mood effortlessly.',
-          selectedVariant: null,
-          selectedSize: null,
-          details: ['50% Cotton', '30% Wool', '20% Polyester'],
-          variants: [
-            { id: 2054, color: 'Multiple', image: './assets/images/socks_bundle.jpg', quantity: 13 },
-          ],
-          sizes: ['small (s)', 'medium (m)', 'large (lg)'],
-          totalInventory: 0
-        },
-        {
           id: 1,
           brand: "Chameleon Chic",
           name: "Socks",
