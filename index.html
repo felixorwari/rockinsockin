@@ -34,28 +34,32 @@
     <div id="app">
       <!-- Site Navigation -->
       <header
-        class="sticky top-0 left-0 right-0 z-50 flex items-center px-8 py-4 shadow-lg navbar bg-white/80 backdrop-blur-md"
+        class="sticky top-0 left-0 right-0 z-50 shadow-lg navbar bg-white/80 backdrop-blur-md"
       >
-        <!-- Logo -->
-        <a href="#" title="Rockin Sockin">
-          <img
-            src="./assets/images/logo.png"
-            class="h-[50px] w-auto hover:scale-[102%] grayscale invert hover:grayscale-0 hover:invert-0 transition"
-            alt="rockin sockin logo"
-        /></a>
-        <div
-          class="py-2 pl-4 pr-2 ml-auto transition border-2 border-gray-100 rounded-full outline outline-white hover:cursor-pointer hover:outline-gray-300 hover:outline-offset-2 hover:outline-2"
-        >
-          <i class="mr-2 text-orange-400 fa-solid fa-basket-shopping"></i>
-          My Basket
-          <span
-            class="inline-flex items-center justify-center w-8 h-8 px-2 ml-2 text-sm font-semibold text-center text-orange-600 bg-orange-100 rounded-full"
-            >{{ cart.length }}</span
+        <div class="flex items-center px-4 py-4 mx-auto xl:px-0 lg:container">
+          <!-- Logo -->
+          <a href="#" title="Rockin Sockin">
+            <img
+              src="./assets/images/logo.png"
+              class="h-[45px] sm:h-[50px] w-auto hover:scale-[102%] grayscale invert hover:grayscale-0 hover:invert-0 transition"
+              alt="rockin sockin logo"
+          /></a>
+
+          <!-- Shopping Basket -->
+          <div
+            class="py-1 pl-4 pr-2 ml-auto transition border-2 border-gray-100 rounded-full sm:py-2 hover:cursor-pointer hover:outline hover:outline-gray-200 hover:outline-offset-2"
           >
+            <i class="mr-2 text-orange-400 fa-solid fa-basket-shopping"></i>
+            <span class="hidden mx-4 sm:inline-block">My Basket</span>
+            <span
+              class="inline-flex items-center justify-center w-8 h-8 px-2 ml-2 text-sm font-semibold text-center text-orange-600 bg-orange-100 rounded-full"
+              >{{ cart.length }}</span
+            >
+          </div>
         </div>
       </header>
 
-      <main class="mx-auto prose md:container">
+      <main class="mx-auto lg:container">
         <!-- Product Display -->
         <product-display
           :stock-threshold="stockThreshold"
@@ -67,9 +71,9 @@
 
     <!-- Footer -->
     <footer class="pt-8 pb-16 mt-8 bg-gray-800">
-      <div class="mx-auto prose text-gray-200 md:container">
+      <div class="mx-auto prose text-gray-200 lg:container">
         <div
-          class="flex flex-col items-center px-4 md:px-0 md:flex-row md:justify-between"
+          class="flex flex-col items-center px-4 xl:px-0 md:flex-row md:justify-between"
         >
           <p>&copy; Rockin Sockin. All rights reserved.</p>
           <div class="flex gap-8">

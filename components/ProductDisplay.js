@@ -9,7 +9,7 @@ app.component('product-display', {
   template:
     /*html*/
     `
-    <div class="flex flex-col px-4 py-8 product-display md:px-0">
+    <div class="flex flex-col px-4 py-8 product-display xl:px-0 gap-8">
       <section
         v-for="product in products"
         :key="product.id"
@@ -30,7 +30,7 @@ app.component('product-display', {
 
         <!-- Product Info -->
         <article
-          class="w-full product-info md:pt-4 md:pb-8 md:w-1/2 text-balance my-8"
+          class="w-full prose product-info md:pt-4 md:pb-8 md:w-1/2 text-balance my-8"
         >
           <!-- Inventory Status -->
           <div class="flex items-center mb-4 text-xs inventory">
@@ -57,7 +57,7 @@ app.component('product-display', {
             {{ product.brand + ' ' + product.name }}
           </h1>
 
-          <p class="product-description justify">{{ product.description }}</p>
+          <p class="product-description">{{ product.description }}</p>
 
           <div class="my-4">
             <p class="font-semibold text-2xl">Ksh. {{ product.price.toLocaleString() }}/-</p>
