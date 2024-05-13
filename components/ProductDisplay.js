@@ -61,12 +61,8 @@ app.component('product-display', {
             <p class="font-semibold text-2xl">Ksh. {{ product.price.toLocaleString() }}/-</p>
           </div>
 
-          <h4>Material</h4>
-          <ul>
-            <li v-for="material in product.material">
-              {{ material }}
-            </li>
-          </ul>
+          <h4>Material:</h4>
+          <p>{{ product.material.join(', ') }}</p>
 
           <h4>Color:</h4>
           <div class="flex gap-8">
@@ -101,7 +97,7 @@ app.component('product-display', {
           <!-- Action Button(s) -->
           <div class="flex items-end gap-6 mt-8 actions">
             <div class="">
-              <label for="orderQuantity" class="mr-2 mb-2 block font-medium text-sm">Quantity</label>
+              <label for="orderQuantity" class="mr-2 mb-2 block font-medium">Quantity</label>
               <div class="relative flex items-center">
                 <button 
                   type="button" 
