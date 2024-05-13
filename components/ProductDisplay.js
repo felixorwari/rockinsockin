@@ -49,6 +49,10 @@ app.component('product-display', {
 
         <p class="product-description justify">{{ product.description }}</p>
 
+        <div class="my-4">
+          <p class="font-semibold text-2xl">Ksh. {{ product.price.toLocaleString() }}/-</p>
+        </div>
+
         <h4>Material</h4>
         <ul>
           <li v-for="productDetail in product.details">
@@ -117,6 +121,7 @@ app.component('product-display', {
             { id: 1135, color: 'Navy', image: './assets/images/socks_blue.jpg', quantity: 15 },
           ],
           sizes: ['small (s)', 'medium (m)', 'large (lg)'],
+          price: 249,
           totalInventory: 0
         },
         {
@@ -133,6 +138,7 @@ app.component('product-display', {
             { id: 3335, color: 'Lime', image: './assets/images/socks_lime.jpg', quantity: 0 },
           ],
           sizes: ['small (s)', 'medium (m)', 'large (lg)'],
+          price: 269,
           totalInventory: 0
         },
         {
@@ -151,7 +157,7 @@ app.component('product-display', {
             { id: 4236, color: 'Yellow', image: './assets/images/socks_yellow.jpg', quantity: 12 },
           ],
           sizes: ['small (s)', 'medium (m)', 'large (lg)'],
-          url: 'https://example.com/rainbow_dreams_socks',
+          price: 299,
           totalInventory: 0
         }
       ]
