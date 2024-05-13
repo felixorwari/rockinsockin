@@ -11,6 +11,7 @@
     <!-- Import Styles -->
     <link rel="stylesheet" href="./assets/styles.css" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,container-queries"></script>
+
     <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
@@ -19,6 +20,15 @@
       src="https://kit.fontawesome.com/c5314f6096.js"
       crossorigin="anonymous"
     ></script>
+
+    <style>
+      /* Remove spinners for number input */
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    </style>
   </head>
   <body class="bg-gray-50">
     <div id="app">
@@ -30,7 +40,7 @@
         <a href="#" title="Rockin Sockin">
           <img
             src="./assets/images/logo.png"
-            class="h-[50px] w-auto object-fit hover:scale-[98%] transition"
+            class="h-[50px] w-auto hover:scale-[102%] grayscale invert hover:grayscale-0 hover:invert-0 transition"
             alt="rockin sockin logo"
         /></a>
         <div
@@ -40,14 +50,17 @@
           My Cart
           <span
             class="inline-flex items-center justify-center w-8 h-8 px-2 ml-2 text-sm font-semibold text-center text-orange-600 bg-orange-100 rounded-full"
-            >{{ cart }}</span
+            >{{ cart.length }}</span
           >
         </div>
       </div>
 
       <div class="mx-auto prose md:container">
         <!-- Product Display -->
-        <product-display></product-display>
+        <product-display
+          :stock-threshold="stockThreshold"
+          @add-to-cart="updateCart"
+        ></product-display>
       </div>
     </div>
     <!-- / End App -->

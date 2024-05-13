@@ -1,4 +1,11 @@
 app.component('product-display', {
+  emits: ['add-to-cart'],
+  props: {
+    stockThreshold: {
+      type: Number,
+      required: true
+    }
+  },
   template:
     /*html*/
     `
@@ -10,12 +17,12 @@ app.component('product-display', {
       >
         <!-- Product Image -->
         <div
-          class="w-full overflow-hidden bg-white border-2 border-gray-100 rounded product-image md:w-1/2"
+          class="grid w-full overflow-hidden bg-white border-2 border-gray-100 rounded product-image md:w-1/2"
         >
           <img
             :src="product.selectedVariant.image"
             :alt="product.title"
-            class="hover:scale-[110%] object-cover transition"
+            class="w-full h-auto hover:scale-[110%] object-cover transition my-auto"
           />
         </div>
 
@@ -26,21 +33,21 @@ app.component('product-display', {
           <!-- Inventory Status -->
           <div class="flex items-center mb-4 text-xs inventory">
             <span
-              v-if="product.totalInvetory > stockThreshold"
-              class="px-4 py-2 text-green-700 bg-green-100 rounded"
+              v-if="product.selectedVariant.quantity > stockThreshold"
+              class="px-4 py-2 text-green-600 bg-green-50 rounded"
             >
-            <i class="fa-regular fa-circle-check mr-2 "></i> In stock
+              <i class="fa-solid fa-circle-check mr-2 "></i> In stock
             </span>
 
             <span
-              v-else-if="product.totalInvetory <= stockThreshold && product.totalInvetory > 0"
-              class="px-4 py-2 text-yellow-700 bg-yellow-100 rounded"
+              v-else-if="product.selectedVariant.quantity <= stockThreshold && product.selectedVariant.quantity > 0"
+              class="px-4 py-2 text-yellow-600 bg-yellow-50 rounded"
             >
-            <i class="fa-regular fa-triangle-exclamation mr-2 "></i> Few items remaining!
+              <i class="fa-solid fa-triangle-exclamation mr-2 "></i> Few items remaining!
             </span>
 
-            <span v-else class="px-4 py-2 text-red-700 bg-red-100 rounded">
-            <i class="fa-regular fa-circle-exclamation mr-2 "></i>  Sold out!
+            <span v-else class="px-4 py-2 text-red-600 bg-red-50 rounded">
+              <i class="fa-solid fa-circle-exclamation mr-2 "></i>  Sold out!
             </span>
           </div>
 
@@ -56,8 +63,8 @@ app.component('product-display', {
 
           <h4>Material</h4>
           <ul>
-            <li v-for="productDetail in product.details">
-              {{ productDetail }}
+            <li v-for="material in product.material">
+              {{ material }}
             </li>
           </ul>
 
@@ -92,13 +99,46 @@ app.component('product-display', {
           </div>
 
           <!-- Action Button(s) -->
-          <div class="flex gap-6 mt-8 actions">
+          <div class="flex items-end gap-6 mt-8 actions">
+            <div class="">
+              <label for="orderQuantity" class="mr-2 mb-2 block font-medium text-sm">Quantity</label>
+              <div class="relative flex items-center">
+                <button 
+                  type="button" 
+                  class="bg-gray-100 border border-gray-300 px-4 py-[.425rem] focus:ring-2 rounded-s disabled:opacity-25" 
+                  @click="orderQuantity--"
+                  :disabled="product.selectedVariant.quantity === 0 || orderQuantity <= 1"
+                  >
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+                <input 
+                  type="number" 
+                  v-model="orderQuantity"
+                  name="orderQuantity"
+                  class="w-16 h-11 text-center text-sm py-2.5 border-x-0 border-gray-300" 
+                  min="1" 
+                  :max="product.selectedVariant.quantity" 
+                  :disabled="product.selectedVariant.quantity === 0"
+                  step="1"
+                  required />
+                <button 
+                  type="button" 
+                  class="bg-gray-100 border border-gray-300 px-4 py-[.425rem] focus:ring-2 rounded-e disabled:opacity-25" 
+                  @click="orderQuantity++"
+                  :disabled="product.selectedVariant.quantity === 0 || orderQuantity >= product.selectedVariant.quantity"
+                  >
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </div>
+
             <button
               :disabled="!product.selectedVariant || product.selectedVariant.quantity <= 0"
-              @click="addToCart(product.id)"
+              @click="addToCart(product, orderQuantity)"
               type="button"
-              class="px-6 py-4 text-sm font-semibold tracking-wide text-white uppercase transition bg-blue-700 rounded hover:bg-blue-600 hover:shadow-lg hover:disabled:shadow-none disabled:bg-blue-700 disabled:opacity-25 disabled:cursor-not-allowed"
+              class="px-6 py-3 text-sm font-semibold tracking-wide text-white uppercase transition bg-blue-700 rounded hover:bg-blue-600 hover:shadow-lg hover:disabled:shadow-none disabled:bg-blue-700 disabled:opacity-25 disabled:cursor-not-allowed"
             >
+              <i class="mr-2 fa-solid fa-cart-plus"></i>
               Add to Cart
             </button>
           </div>
@@ -111,16 +151,34 @@ app.component('product-display', {
     return {
       products: [
         {
-          id: 1,
-          brand: "Chameleon Chic",
-          name: "Socks",
-          description: 'Available in refreshing green and cool blue. Whether you\'re feeling like a verdant forest or a tranquil ocean, these socks will match your mood effortlessly.',
+          id: 3,
+          sku: "BW20HT21P123456",
+          brand: "CozyFeet",
+          name: "Ankle Socks",
+          description: "Wrap your feet in comfort and style with our CozyFeet Ankle Socks! These socks are like a warm hug for your feet, available in two classic colors to complement any mood or occasion. Opt for striking Red for a bold touch or classic Black for understated chic.",
+          defaultImage: "./assets/images/socks_rainbow.jpg",
           selectedVariant: null,
           selectedSize: null,
-          details: ['50% Cotton', '30% Wool', '20% Polyester'],
+          material: ['80% Cotton', '15% Polyester', '5% Spandex'],
           variants: [
-            { id: 2234, color: 'Green', image: './assets/images/socks_green.jpg', quantity: 8 },
-            { id: 1135, color: 'Navy', image: './assets/images/socks_blue.jpg', quantity: 15 },
+            { id: 4234, color: 'Red', image: './assets/images/socks_red.jpg', quantity: 10 },
+            { id: 4235, color: 'Black', image: './assets/images/socks_black.jpg', quantity: 8 },
+          ],
+          sizes: ['small (s)', 'medium (m)', 'large (lg)'],
+          price: 299,
+          totalInventory: 0
+        },
+        {
+          id: 1,
+          brand: "Stripy Swag",
+          name: "Striped Socks",
+          description: 'Make a bold statement with our Striped Swag Striped Socks! These socks are like a party for your feet, available in two striking designs to jazz up any ensemble. Choose between sunny yellow/white stripes for a burst of energy or classic navy/red stripes for timeless elegance.',
+          selectedVariant: null,
+          selectedSize: null,
+          material: ['50% Cotton', '30% Wool', '20% Polyester'],
+          variants: [
+            { id: 2234, color: 'Yellow', image: './assets/images/socks_yellow.jpg', quantity: 15 },
+            { id: 1135, color: 'Navy', image: './assets/images/socks_striped.jpg', quantity: 6 },
           ],
           sizes: ['small (s)', 'medium (m)', 'large (lg)'],
           price: 249,
@@ -128,41 +186,22 @@ app.component('product-display', {
         },
         {
           id: 2,
-          brand: "Sunrise Spectrum",
-          name: "Socks",
-          description: "Embrace the vibrant hues of dawn with our Sunrise Spectrum socks. Available in warm orange and radiant yellow, these socks will brighten up your day with every step.",
+          brand: "Funky Prints",
+          name: "Patterned Socks",
+          description: "Step up your sock game with our Funky Prints Patterned Socks! These socks are a feast for the eyes, available in two eye-catching designs to add a pop of color to any outfit. Choose between Purple Checkered for a touch of sophistication or Navy Christmas for a festive twist.",
           selectedVariant: null,
           selectedSize: null,
-          details: ['70% Cotton', '25% Nylon', '5% Spandex'],
+          material: ['70% Cotton', '25% Nylon', '5% Spandex'],
           variants: [
-            { id: 3234, color: 'Orange', image: './assets/images/socks_orange.jpg', quantity: 8 },
-            { id: 3335, color: 'Pink', image: './assets/images/socks_magenta.jpg', quantity: 12 },
-            { id: 3335, color: 'Lime', image: './assets/images/socks_lime.jpg', quantity: 0 },
+            { id: 3335, color: 'Navy', image: './assets/images/socks_christmas.jpg', quantity: 4 },
+            { id: 3234, color: 'Purple', image: './assets/images/socks_checkered.jpg', quantity: 8 },
           ],
           sizes: ['small (s)', 'medium (m)', 'large (lg)'],
-          price: 269,
-          totalInventory: 0
-        },
-        {
-          id: 3,
-          sku: "BW20HT21P123456",
-          brand: "Rainbow Dreams",
-          name: "Socks",
-          description: "Experience the magic of rainbow dreams with our vibrant socks. Available in three stunning colors to match your every mood.",
-          defaultImage: "./assets/images/socks_rainbow.jpg",
-          selectedVariant: null,
-          selectedSize: null,
-          details: ['80% Cotton', '15% Polyester', '5% Spandex'],
-          variants: [
-            { id: 4234, color: 'Red', image: './assets/images/socks_red.jpg', quantity: 10 },
-            { id: 4235, color: 'Blue', image: './assets/images/socks_blue.jpg', quantity: 8 },
-            { id: 4236, color: 'Yellow', image: './assets/images/socks_yellow.jpg', quantity: 12 },
-          ],
-          sizes: ['small (s)', 'medium (m)', 'large (lg)'],
-          price: 299,
+          price: 319,
           totalInventory: 0
         }
-      ]
+      ],
+      orderQuantity: 1
     }
   },
 
@@ -183,13 +222,12 @@ app.component('product-display', {
   },
 
   methods: {
-    addToCart(productID) {
-      // Find the product by ID
-      const product = this.products.find(product => product.id === productID)
-      if (!product || !product.selectedVariant || product.selectedVariant.quantity <= 0) return // Product not found, or no variant selected, or variant out of stock
+    addToCart(product, orderQuantity) {
+      // Confirm stock levels for selected product variant 
+      if (!product.selectedVariant || product.selectedVariant.quantity <= 0 || orderQuantity > product.selectedVariant.quantity) return // Product not found, or no variant selected, or variant out of stock
 
-      // Increment cart count
-      this.cart += 1
+      // Emit event to update cart
+      this.$emit('add-to-cart', product, orderQuantity)
 
       // Decrement quantity of selected variant
       product.selectedVariant.quantity -= 1
