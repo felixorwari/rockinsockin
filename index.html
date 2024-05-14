@@ -95,23 +95,6 @@
       </header>
 
       <main id="products" class="mx-auto lg:container">
-        <!-- Empty State -->
-        <div
-          v-if="!products"
-          class="flex flex-col items-center content-center gap-12 py-16 text-gray-400"
-        >
-          <figure class="max-w-sm">
-            <img
-              src="./assets/images/mascot-shrug.png"
-              class="object-cover transition grayscale hover:grayscale-0"
-              alt="mascot shrugging"
-            />
-          </figure>
-          <p class="max-w-sm text-2xl text-center text-balance">
-            Oops! There are no socks in stock right now. Check back later.
-          </p>
-        </div>
-
         <!-- Product Display -->
         <product-display
           :stock-threshold="stockThreshold"
