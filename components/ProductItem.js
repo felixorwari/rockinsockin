@@ -153,6 +153,7 @@ app.component('product-item', {
     }
   },
 
+  /** @TODO Refactor these to remove unnecessary 'product' parameter */
   methods: {
     addToCart(product, orderQuantity) {
       // Confirm stock levels for selected product variant 
@@ -177,7 +178,9 @@ app.component('product-item', {
     },
 
     addReview(review) {
-      console.log(review)
+      console.log('Adding review...')
+      this.product.reviews.push(review)
+      console.log('Review successfully added!')
     }
   },
 
