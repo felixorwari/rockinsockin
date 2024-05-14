@@ -17,7 +17,7 @@ app.component('product-item', {
     <article class="flex flex-col product-container md:flex-row gap-8">
       <!-- Product Image -->
       <figure
-        class="grid w-full overflow-hidden bg-white border-2 border-gray-100 rounded product-image md:w-1/2"
+        class="w-full self-start overflow-hidden bg-white border-2 border-gray-100 rounded product-image md:w-1/2"
       >
         <img
           :src="product.selectedVariant.image"
@@ -140,6 +140,8 @@ app.component('product-item', {
             Buy Now
           </button>
         </div>
+
+        <review-form :product class="mt-12" @add-review="addReview"></review-form>
       </div>
     </article>
     `
@@ -172,6 +174,10 @@ app.component('product-item', {
 
     updateSize(product, size) {
       product.selectedSize = size
+    },
+
+    addReview(review) {
+      console.log(review)
     }
   },
 

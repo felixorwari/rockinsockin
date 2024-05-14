@@ -1,0 +1,25 @@
+{
+  "name": "rockinsockin",
+  "version": "1.1.0",
+  "description": "bespoke socks online shop",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felixorwari/rockinsockin.git"
+  },
+  "keywords": [
+    "socks",
+    "shop",
+    "rockin",
+    "sockin"
+  ],
+  "author": "https://github.com/felixorwari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felixorwari/rockinsockin/issues"
+  },
+  "homepage": "https://github.com/felixorwari/rockinsockin#readme"
+}
