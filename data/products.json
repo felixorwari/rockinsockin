@@ -15,6 +15,7 @@
     ],
     "sizes": ["(s) small", "(m) medium", "(l) large"],
     "price": 299,
+    "reviews": [],
     "totalInventory": 0
   },
   {
@@ -36,6 +37,7 @@
     ],
     "sizes": ["(s) small", "(m) medium", "(l) large"],
     "price": 249,
+    "reviews": [],
     "totalInventory": 0
   },
   {
@@ -62,6 +64,7 @@
     ],
     "sizes": ["(s) small", "(m) medium", "(l) large"],
     "price": 319,
+    "reviews": [],
     "totalInventory": 0
   }
 ]
