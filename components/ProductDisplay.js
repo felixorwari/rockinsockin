@@ -85,13 +85,13 @@ app.component('product-display', {
             </div>
           </div>
 
-          <h4>Size:</h4>
+          <h4>Select size:</h4>
           <div class="flex gap-4 tracking-wide">
             <span
               v-for="(size, index) in product.sizes"
               :key="index"
               @click="updateSize(product, size)"
-              class="px-4 py-2 text-xs font-semibold bg-gray-100 border-2 border-gray-200 rounded hover:bg-white hover:cursor-pointer"
+              class="px-2 sm:px-4 py-2 text-xs font-semibold bg-gray-100 border-2 border-gray-200 rounded hover:bg-white hover:cursor-pointer"
               >{{ size.toUpperCase() }}</span
             >
           </div>
@@ -134,7 +134,7 @@ app.component('product-display', {
               :disabled="!product.selectedVariant || product.selectedVariant.quantity <= 0"
               @click="addToCart(product, orderQuantity)"
               type="button"
-              class="px-6 py-3 text-sm font-semibold tracking-wide text-white uppercase transition bg-blue-700 rounded hover:bg-blue-600 hover:shadow-lg hover:disabled:shadow-none disabled:bg-blue-700 disabled:opacity-25 disabled:cursor-not-allowed"
+              class="px-6 py-3 text-sm font-semibold tracking-wide text-white uppercase transition bg-gradient-to-br from-blue-700 to-blue-800 rounded hover:bg-gradient-to-br hover:from-blue-600 hover:to-blue-700 hover:shadow-lg hover:disabled:shadow-none disabled:opacity-25 disabled:cursor-not-allowed"
             >
               <i class="mr-2 fa-solid fa-cart-plus"></i>
               Buy Now
@@ -162,7 +162,7 @@ app.component('product-display', {
             { id: 4234, color: 'Red', image: './assets/images/socks_red.jpg', quantity: 10 },
             { id: 4235, color: 'Black', image: './assets/images/socks_black.jpg', quantity: 8 },
           ],
-          sizes: ['small (s)', 'medium (m)', 'large (lg)'],
+          sizes: ['(s) small', '(m) medium', '(l) large'],
           price: 299,
           totalInventory: 0
         },
@@ -178,7 +178,7 @@ app.component('product-display', {
             { id: 2234, color: 'Yellow', image: './assets/images/socks_yellow.jpg', quantity: 15 },
             { id: 1135, color: 'Navy', image: './assets/images/socks_striped.jpg', quantity: 6 },
           ],
-          sizes: ['small (s)', 'medium (m)', 'large (lg)'],
+          sizes: ['(s) small', '(m) medium', '(l) large'],
           price: 249,
           totalInventory: 0
         },
@@ -194,7 +194,7 @@ app.component('product-display', {
             { id: 3335, color: 'Navy', image: './assets/images/socks_christmas.jpg', quantity: 4 },
             { id: 3234, color: 'Purple', image: './assets/images/socks_checkered.jpg', quantity: 8 },
           ],
-          sizes: ['small (s)', 'medium (m)', 'large (lg)'],
+          sizes: ['(s) small', '(m) medium', '(l) large'],
           price: 319,
           totalInventory: 0
         }
