@@ -1,0 +1,67 @@
+[
+  {
+    "id": 3,
+    "sku": "BW20HT21P123456",
+    "brand": "CozyFeet",
+    "name": "Ankle Socks",
+    "description": "Wrap your feet in comfort and style with our CozyFeet Ankle Socks! These socks are like a warm hug for your feet, available in two classic colors to complement any mood or occasion. Opt for striking Red for a bold touch or classic Black for understated chic.",
+    "defaultImage": "./assets/images/socks_rainbow.jpg",
+    "selectedVariant": null,
+    "selectedSize": null,
+    "material": ["80% Cotton", "15% Polyester", "5% Spandex"],
+    "variants": [
+      { "id": 4234, "color": "Red", "image": "./assets/images/socks_red.jpg", "quantity": 10 },
+      { "id": 4235, "color": "Black", "image": "./assets/images/socks_black.jpg", "quantity": 8 }
+    ],
+    "sizes": ["(s) small", "(m) medium", "(l) large"],
+    "price": 299,
+    "totalInventory": 0
+  },
+  {
+    "id": 1,
+    "brand": "Stripy Swag",
+    "name": "Striped Socks",
+    "description": "Make a bold statement with our Striped Swag Striped Socks! These socks are like a party for your feet, available in two striking designs to jazz up any ensemble. Choose between sunny yellow/white stripes for a burst of energy or classic navy/red stripes for timeless elegance.",
+    "selectedVariant": null,
+    "selectedSize": null,
+    "material": ["50% Cotton", "30% Wool", "20% Polyester"],
+    "variants": [
+      {
+        "id": 2234,
+        "color": "Yellow",
+        "image": "./assets/images/socks_yellow.jpg",
+        "quantity": 15
+      },
+      { "id": 1135, "color": "Navy", "image": "./assets/images/socks_striped.jpg", "quantity": 6 }
+    ],
+    "sizes": ["(s) small", "(m) medium", "(l) large"],
+    "price": 249,
+    "totalInventory": 0
+  },
+  {
+    "id": 2,
+    "brand": "Funky Prints",
+    "name": "Patterned Socks",
+    "description": "Step up your sock game with our Funky Prints Patterned Socks! These socks are a feast for the eyes, available in two eye-catching designs to add a pop of color to any outfit. Choose between Purple Checkered for a touch of sophistication or Navy Christmas for a festive twist.",
+    "selectedVariant": null,
+    "selectedSize": null,
+    "material": ["70% Cotton", "25% Nylon", "5% Spandex"],
+    "variants": [
+      {
+        "id": 3335,
+        "color": "Navy",
+        "image": "./assets/images/socks_christmas.jpg",
+        "quantity": 4
+      },
+      {
+        "id": 3234,
+        "color": "Purple",
+        "image": "./assets/images/socks_checkered.jpg",
+        "quantity": 8
+      }
+    ],
+    "sizes": ["(s) small", "(m) medium", "(l) large"],
+    "price": 319,
+    "totalInventory": 0
+  }
+]
