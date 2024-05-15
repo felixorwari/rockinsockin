@@ -15,7 +15,18 @@
     ],
     "sizes": ["(s) small", "(m) medium", "(l) large"],
     "price": 299,
-    "reviews": [],
+    "reviews": [
+      {
+        "user": "HappyFeet123",
+        "rating": 5,
+        "comment": "These ankle socks are so comfy and stylish! I love the material and the fit. Will definitely buy more in other colors!"
+      },
+      {
+        "user": "SockLover22",
+        "rating": 4,
+        "comment": "The red ankle socks are great! They're soft and cozy, but the black ones are a bit tight around the ankle."
+      }
+    ],
     "totalInventory": 0
   },
   {
@@ -37,7 +48,18 @@
     ],
     "sizes": ["(s) small", "(m) medium", "(l) large"],
     "price": 249,
-    "reviews": [],
+    "reviews": [
+      {
+        "user": "StripeEnthusiast",
+        "rating": 5,
+        "comment": "I absolutely adore these striped socks! The colors are vibrant and the material is top-notch. Highly recommend!"
+      },
+      {
+        "user": "FashionistaSock",
+        "rating": 4,
+        "comment": "The navy/red striped socks are perfect for adding a touch of elegance to any outfit. The yellow/white ones are a bit too bright for my taste, but still good quality."
+      }
+    ],
     "totalInventory": 0
   },
   {
@@ -64,7 +86,18 @@
     ],
     "sizes": ["(s) small", "(m) medium", "(l) large"],
     "price": 319,
-    "reviews": [],
+    "reviews": [
+      {
+        "user": "PatternFanatic",
+        "rating": 5,
+        "comment": "These patterned socks are fantastic! I love the unique designs and the quality is superb. Can't wait to wear them!"
+      },
+      {
+        "user": "HolidaySockObsessed",
+        "rating": 4,
+        "comment": "The navy Christmas socks are adorable! Perfect for the holiday season. The purple checkered ones are nice too, but the colors are not as vibrant as I expected."
+      }
+    ],
     "totalInventory": 0
   }
 ]
