@@ -10,7 +10,7 @@ app.component('review-list', {
     /*html*/
     `
     <div class="pt-8 border-t">
-      <h3>Reviews</h3>
+      <h3>Product Reviews <span class="">({{ reviews.length }})</span></h3>
 
       <div class="flex flex-col divide-y">
         <div v-for="(review, index) in reviews" :key="index" class="py-4">
