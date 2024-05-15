@@ -141,6 +141,10 @@ app.component('product-item', {
           </button>
         </div>
 
+        <review-list v-if="product.reviews.length" :reviews="product.reviews" class="mt-12"></review-list>
+
+        <hr>
+
         <review-form :product class="mt-12" @add-review="addReview"></review-form>
       </div>
     </article>
