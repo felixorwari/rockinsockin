@@ -141,6 +141,10 @@ app.component('product-item', {
           </button>
         </div>
 
+        <review-list v-if="product.reviews.length" :reviews="product.reviews" class="mt-12"></review-list>
+
+        <hr>
+
         <review-form :product class="mt-12" @add-review="addReview"></review-form>
       </div>
     </article>
@@ -153,6 +157,7 @@ app.component('product-item', {
     }
   },
 
+  /** @TODO Refactor these to remove unnecessary 'product' parameter */
   methods: {
     addToCart(product, orderQuantity) {
       // Confirm stock levels for selected product variant 
@@ -177,7 +182,9 @@ app.component('product-item', {
     },
 
     addReview(review) {
-      console.log(review)
+      console.log('Adding review...')
+      this.product.reviews.push(review)
+      console.log('Review successfully added!')
     }
   },
 
