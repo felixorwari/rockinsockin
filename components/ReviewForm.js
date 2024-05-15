@@ -13,36 +13,25 @@ app.component('review-form', {
       <h3>Leave a review</h3>
 
       <div class="">
-        <label for="name" class="block mb-2 text-sm">Your name:</label>
+        <label for="name" class="block mb-2 text-sm font-medium">Username:</label>
         <input
           type="text"
           id="name"
           v-model="user"
-          class="block p-2.5 w-full text-sm border border-gray-300 rounded"
-          placeholder="Full name"
+          class="block p-2.5 w-full text-sm border border-gray-300 rounded placeholder:text-gray-400"
+          placeholder="Username/email address"
+          autofill="username"
           required
         />
       </div>
 
       <div class="">
-        <label for="comment" class="block mb-2 text-sm">Review:</label>
-        <textarea
-          id="comment"
-          v-model="comment"
-          rows="4"
-          class="block p-2.5 w-full text-sm border border-gray-300 rounded"
-          placeholder="Write a review here"
-          required
-        ></textarea>
-      </div>
-
-      <div class="">
-        <label for="rating" class="block mb-2 text-sm">Rating</label>
+        <label for="rating" class="block mb-2 text-sm font-medium">Rating</label>
         <select
           name="rating"
           id="rating"
           v-model="rating"
-          class="block p-2.5 w-full text-sm border border-gray-300 rounded"
+          class="block p-2.5 w-full text-sm border border-gray-300 rounded placeholder:text-gray-400"
         >
           <option value="5">5</option>
           <option value="4">4</option>
@@ -50,6 +39,23 @@ app.component('review-form', {
           <option value="2">2</option>
           <option value="1">1</option>
         </select>
+      </div>
+
+      <div class="">
+        <label for="comment" class="block mb-2 text-sm font-medium">Review:</label>
+        <textarea
+          id="comment"
+          v-model="comment"
+          rows="4"
+          :maxlength
+          class="block p-2.5 w-full text-sm border border-gray-300 rounded placeholder:text-gray-400"
+          placeholder="Write a review here"
+          required
+        ></textarea>
+        <p class="text-sm text-gray-400 text-right" :comment>
+          <span v-if="comment">{{ comment.length }}</span>
+          <span v-else>0</span>
+          /{{ maxlength }} characters</p>
       </div>
 
       <button
@@ -67,6 +73,7 @@ app.component('review-form', {
       user: null,
       comment: null,
       rating: null,
+      maxlength: 160
     }
   },
 
