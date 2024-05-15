@@ -54,9 +54,9 @@ app.component('review-form', {
 
       <button
         type="submit"
-        class="px-6 py-3 text-sm font-semibold tracking-wide text-white uppercase transition rounded bg-gradient-to-br from-blue-700 to-blue-800 hover:bg-gradient-to-br hover:from-blue-600 hover:to-blue-700 hover:shadow-lg hover:disabled:shadow-none disabled:opacity-25 disabled:cursor-not-allowed"
+        class="w-fit grow-0 px-6 py-3 text-sm font-semibold tracking-wide text-white uppercase transition rounded bg-gradient-to-br from-gray-700 to-gray-800 hover:bg-gradient-to-br hover:from-gray-600 hover:to-gray-700 hover:shadow-lg hover:disabled:shadow-none disabled:opacity-25 disabled:cursor-not-allowed"
       >
-        Submit
+        Submit Review
       </button>
     </form>
     `
